@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "LoanLens",
+    "slug": "loanlens-app",
+    "owner": "abhisheksand",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#0B0F17",
+    "primaryColor": "#3B9384",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.loanlens.app"
+    },
+    "android": {
+      "package": "com.loanlens.app",
+      "versionCode": 1,
+      "backgroundColor": "#0B0F17",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0F17"
+      },
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_MEDIA_IMAGES"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ae7c9617-ae4d-49c7-9194-26e9527213a2"
+      }
+    }
+  }
+}

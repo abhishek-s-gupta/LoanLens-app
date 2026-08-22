@@ -1,0 +1,276 @@
+export const SAMPLE_DOCUMENTS = [
+  {
+    id: 'doc-hdfc-home-loan',
+    title: 'Home Loan Agreement - HDFC',
+    date: 'Oct 24, 2023',
+    riskScore: 72,
+    riskLevel: 'Moderate Risk',
+    riskColor: '#F59E0B',
+    flagsFound: 3,
+    type: 'Home Loan',
+    rawText: `In the event of a default in the payment of any installment beyond the due date, a penalty interest of 24% per annum shall be levied on the outstanding amount, compounded monthly.
+
+This agreement shall automatically renew for an additional term of twelve (12) months unless either party provides written notice of termination no less than thirty (30) days prior to the expiry.
+
+A non-refundable processing fee equivalent to 2.5% of the principal amount shall be deducted at the source of disbursement, irrespective of the final disbursement status.`,
+    clauses: [
+      {
+        id: 'c1',
+        tag: 'LATE PAYMENT CLAUSE',
+        tagIcon: 'alert-circle',
+        tagColor: '#F59E0B',
+        title: 'In the event of a default in the payment of any installment beyond the due date, a penalty interest of 24% per annum shall be levied on the outstanding amount, compounded monthly.',
+        quote: 'in the event of a default in the payment of any installment beyond the due date, a penalty interest of 24% per annum shall be levied on the outstanding amount, compounded monthly.',
+        takeawaySnippet: 'If you miss a payment, they charge you an extra 2% every month on top of usual...',
+        plainEnglish: 'If you miss a payment, they charge you an extra 2% every month on top of your usual interest. It adds up fast.',
+        category: 'Late Payment Clause',
+      },
+      {
+        id: 'c2',
+        tag: 'AUTO-RENEWAL',
+        tagIcon: 'refresh-cw',
+        tagColor: '#F59E0B',
+        title: 'This agreement shall automatically renew for an additional term of twelve (12) months unless either party provides written notice of termination no less than thirty (30) days prior to the expiry.',
+        quote: 'This agreement shall automatically renew for an additional term of twelve (12) months unless either party provides written notice of termination no less than thirty (30) days prior to the expiry.',
+        takeawaySnippet: 'The loan automatically extends for another year unless you tell them you\'re leaving...',
+        plainEnglish: 'The loan automatically extends for another year unless you tell them you\'re leaving at least a month before it ends.',
+        category: 'Renewal Terms',
+      },
+      {
+        id: 'c3',
+        tag: 'PROCESSING FEE',
+        tagIcon: 'credit-card',
+        tagColor: '#EF4444',
+        title: 'A non-refundable processing fee equivalent to 2.5% of the principal amount shall be deducted at the source of disbursement, irrespective of the final disbursement status.',
+        quote: 'A non-refundable processing fee equivalent to 2.5% of the principal amount shall be deducted at the source of disbursement, irrespective of the final disbursement status.',
+        takeawaySnippet: 'You have to pay a 2.5% \'setup\' fee just for applying. Even if the loan doesn\'t go...',
+        plainEnglish: 'You have to pay a 2.5% \'setup\' fee just for applying. Even if the loan doesn\'t go through, you don\'t get this money back.',
+        category: 'Processing Fee',
+      },
+    ],
+    insight: {
+      title: 'LoanLens Insight',
+      text: 'You can often negotiate to remove \'Auto-Renewal\' clauses. It\'s a standard request that lenders usually grant if you ask firmly.',
+    },
+    questions: [
+      {
+        id: 'q1',
+        question: 'Is the 24% penalty interest calculated daily or monthly?',
+        clauseTag: 'Late Payment Clause',
+        checked: true,
+      },
+      {
+        id: 'q2',
+        question: 'Can I opt-out of the 12-month auto-renewal?',
+        clauseTag: 'Renewal Terms',
+        checked: false,
+      },
+      {
+        id: 'q3',
+        question: 'Under what conditions is the 2.5% fee refundable?',
+        clauseTag: 'Processing Fee',
+        checked: false,
+      },
+      {
+        id: 'q4',
+        question: 'Are there any hidden administrative charges?',
+        clauseTag: 'General Terms',
+        checked: false,
+      },
+    ],
+  },
+  {
+    id: 'doc-car-insurance',
+    title: 'Car Insurance Policy',
+    date: 'Oct 12, 2023',
+    riskScore: 45,
+    riskLevel: 'High Risk',
+    riskColor: '#EF4444',
+    flagsFound: 5,
+    type: 'Insurance',
+    rawText: `The policy excludes all plastic, rubber, and glass consumables from zero-depreciation coverage unless an auxiliary rider is purchased. 
+In the event of total loss, a salvage deduction of up to 15% shall be charged against the agreed insured declared value. 
+A compulsory deductible of $500 applies to every single claim regardless of fault.`,
+    clauses: [
+      {
+        id: 'c-car-1',
+        tag: 'CONSUMABLES EXCLUSION',
+        tagIcon: 'alert-triangle',
+        tagColor: '#EF4444',
+        title: 'The policy excludes all plastic, rubber, and glass consumables from zero-depreciation coverage unless an auxiliary rider is purchased.',
+        quote: 'excludes all plastic, rubber, and glass consumables from zero-depreciation coverage...',
+        takeawaySnippet: 'Consumable parts are not covered in accidents...',
+        plainEnglish: 'If you have an accident, you will still pay out-of-pocket for routine replacement parts like wipers, coolants, and rubber mounts.',
+        category: 'Exclusions',
+      },
+      {
+        id: 'c-car-2',
+        tag: 'SALVAGE DEDUCTION',
+        tagIcon: 'percent',
+        tagColor: '#F59E0B',
+        title: 'In the event of total loss, a salvage deduction of up to 15% shall be charged against the IDV.',
+        quote: 'a salvage deduction of up to 15% shall be charged against the agreed insured declared value...',
+        takeawaySnippet: 'You get 15% less if the vehicle is totaled...',
+        plainEnglish: 'If your car is totaled or stolen, the insurer will hold back up to 15% of your payout for scrap value.',
+        category: 'Payout Terms',
+      },
+    ],
+    insight: {
+      title: 'LoanLens Insight',
+      text: 'Requesting a Nil-Depreciation Rider with return-to-invoice add-on eliminates the 15% salvage deduction trap completely.',
+    },
+    questions: [
+      {
+        id: 'qc1',
+        question: 'Does zero depreciation cover rubber and nylon parts?',
+        clauseTag: 'Coverage Terms',
+        checked: true,
+      },
+      {
+        id: 'qc2',
+        question: 'What is the exact compulsory deductible per accident claim?',
+        clauseTag: 'Deductible Clause',
+        checked: false,
+      },
+      {
+        id: 'qc3',
+        question: 'Is return-to-invoice price included in total loss claims?',
+        clauseTag: 'Payout Terms',
+        checked: false,
+      },
+    ],
+  },
+  {
+    id: 'doc-credit-card',
+    title: 'Credit Card Terms',
+    date: 'Sep 28, 2023',
+    riskScore: 88,
+    riskLevel: 'Low Risk',
+    riskColor: '#10B981',
+    flagsFound: 1,
+    type: 'Credit Card',
+    rawText: `Cash advances incur an instant finance charge of 3.5% with no interest-free grace period. 
+Foreign exchange currency markup is capped at 1.99% with standard interbank settlement.`,
+    clauses: [
+      {
+        id: 'c-cc-1',
+        tag: 'CASH ADVANCE CHARGE',
+        tagIcon: 'dollar-sign',
+        tagColor: '#10B981',
+        title: 'Cash advances incur an instant finance charge of 3.5% with no interest-free grace period.',
+        quote: 'Cash advances incur an instant finance charge of 3.5% with no interest-free grace period...',
+        takeawaySnippet: 'ATM cash withdrawals immediately accumulate daily interest...',
+        plainEnglish: 'Taking cash out at an ATM will immediately charge a 3.5% fee plus daily interest from day one.',
+        category: 'Cash Advance',
+      },
+    ],
+    insight: {
+      title: 'LoanLens Insight',
+      text: 'This card features competitive foreign exchange rates at 1.99%, well below the industry standard of 3.5%.',
+    },
+    questions: [
+      {
+        id: 'qcc1',
+        question: 'Are there any annual renewal fee waivers based on spend milestones?',
+        clauseTag: 'Fee Structure',
+        checked: true,
+      },
+      {
+        id: 'qcc2',
+        question: 'What is the dynamic currency conversion markup fee on overseas POS?',
+        clauseTag: 'Forex Terms',
+        checked: false,
+      },
+    ],
+  },
+  {
+    id: 'doc-personal-loan',
+    title: 'Personal Loan Sanction Letter',
+    date: 'Sep 15, 2023',
+    riskScore: 61,
+    riskLevel: 'Moderate Risk',
+    riskColor: '#F59E0B',
+    flagsFound: 2,
+    type: 'Personal Loan',
+    rawText: `Prepayment and foreclosure of the outstanding principal amount prior to the completion of 12 EMIs shall attract a penalty of 4.5% on the principal outstanding. 
+Mandatory loan protection insurance premium of $320 will be added to the principal balance.`,
+    clauses: [
+      {
+        id: 'c-pl-1',
+        tag: 'FORECLOSURE LOCK-IN',
+        tagIcon: 'lock',
+        tagColor: '#F59E0B',
+        title: 'Prepayment prior to 12 EMIs attracts a 4.5% penalty on principal outstanding.',
+        quote: 'foreclosure of the outstanding principal amount prior to the completion of 12 EMIs shall attract a penalty of 4.5%...',
+        takeawaySnippet: 'You cannot pay off this loan early without a steep 4.5% penalty...',
+        plainEnglish: 'If you want to clear your debt early within the first year, they will penalize you 4.5% of what you owe.',
+        category: 'Prepayment Penalty',
+      },
+    ],
+    insight: {
+      title: 'LoanLens Insight',
+      text: 'Central bank guidelines prohibit foreclosure penalties on floating-rate individual loans. Ask if this applies to your plan.',
+    },
+    questions: [
+      {
+        id: 'qpl1',
+        question: 'Is the mandatory loan protection insurance legally required or optional?',
+        clauseTag: 'Insurance Terms',
+        checked: false,
+      },
+      {
+        id: 'qpl2',
+        question: 'Can the foreclosure penalty be waived after 6 months of on-time payments?',
+        clauseTag: 'Prepayment Clause',
+        checked: true,
+      },
+    ],
+  },
+];
+
+export const HOW_IT_HELPS_ITEMS = [
+  {
+    id: 'hidden-charges',
+    title: 'Hidden Charges',
+    subtitle: 'Find fees others miss',
+    icon: 'cash-outline',
+    iconType: 'ionicon',
+    color: '#10B981',
+    bgColor: 'rgba(16, 185, 129, 0.15)',
+  },
+  {
+    id: 'risky-clauses',
+    title: 'Risky Clauses',
+    subtitle: 'Identify legal traps',
+    icon: 'shield-alert-outline',
+    iconType: 'material-community',
+    color: '#EF4444',
+    bgColor: 'rgba(239, 68, 68, 0.15)',
+  },
+  {
+    id: 'smart-questions',
+    title: 'Smart Questions',
+    subtitle: 'Know what to ask',
+    icon: 'lightbulb-outline',
+    iconType: 'material-community',
+    color: '#3B82F6',
+    bgColor: 'rgba(59, 130, 246, 0.15)',
+  },
+  {
+    id: 'simple-words',
+    title: 'Simple Words',
+    subtitle: 'No legal jargon',
+    icon: 'translate',
+    iconType: 'material-community',
+    color: '#F59E0B',
+    bgColor: 'rgba(245, 158, 11, 0.15)',
+  },
+];
+
+export const SCANNING_STEPS = [
+  { id: 1, label: 'Reading document' },
+  { id: 2, label: 'Identifying financial clauses' },
+  { id: 3, label: 'Checking charges and penalties' },
+  { id: 4, label: 'Evaluating risk' },
+  { id: 5, label: 'Preparing your summary' },
+];
