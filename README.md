@@ -108,3 +108,25 @@ loanlens-app/
     └── theme/
         └── colors.js              # Dark mode fintech color tokens & typography
 ```
+## 🎯 Problem
+
+Financial and legal documents often contain complex terminology, hidden charges, penalty clauses, and conditions that are difficult for users to understand.
+
+LoanLens aims to make these documents easier to understand by converting complex clauses into simple language and highlighting important points users should review before signing.
+---
+## 🧠 How It Works
+
+1. Upload a document or paste contract text
+2. LoanLens processes the document
+3. Relevant clauses are identified and analyzed
+4. Complex terms are explained in plain language
+5. Potential risks and important conditions are highlighted
+6. Users receive questions and suggestions to consider before signing
+
+---
+## 🏆 Hackathon Project
+
+LoanLens was developed as a hackathon project focused on using AI to improve financial and legal document understanding.
+
+The project focuses on rapid prototyping, user-focused design, AI-assisted analysis, and building a practical solution around a real-world problem.
+---
