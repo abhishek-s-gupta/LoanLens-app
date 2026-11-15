@@ -1,5 +1,5 @@
 # ✦ LoanLens
-### Understand Every Clause. Protect Every Decision.
+  ### Understand Every Clause. Protect Every Decision.
 
 <p align="center">
   <strong>AI-Powered Financial & Legal Contract Analyzer</strong>
